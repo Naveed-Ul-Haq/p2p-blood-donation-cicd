@@ -1,0 +1,7 @@
+- task: Docker@2
+  displayName: Build Docker Image
+  inputs:
+    command: build
+    Dockerfile: backend/Dockerfile
+    tags: |
+      latest

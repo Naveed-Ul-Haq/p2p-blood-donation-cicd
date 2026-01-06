@@ -1,0 +1,26 @@
+trigger: none
+
+stages:
+- stage: Deploy
+  displayName: Deploy Backend to Azure
+  jobs:
+  - job: DeployJob
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '18.x'
+
+    - script: |
+        npm install
+      workingDirectory: backend
+      displayName: Install Dependencies
+
+    - task: AzureWebApp@1
+      inputs:
+        azureSubscription: 'azure-service-connection'
+        appName: 'blood-donation-backend'
+        package: backend
+

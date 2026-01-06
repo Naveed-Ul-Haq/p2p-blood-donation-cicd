@@ -1,0 +1,12 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo "CI Pipeline Started"
+  displayName: 'Start Pipeline'
+
+- script: echo "Future steps: build, test, deploy"
+  displayName: 'Placeholder'
